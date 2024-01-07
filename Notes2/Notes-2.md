@@ -114,6 +114,8 @@ streamlit run web_demo.py --server.address 127.0.0.1 --server.port 6006 #运行w
 
 可以成功进行聊天~
 
+
+
 ## 3. Lagent智能体工具调用demo
 
 之前已经配置好了环境,这里直接安装lagent即可
@@ -196,6 +198,32 @@ python examples/web_demo.py  \
 
 
 
+
+## 基础作业：
+
+1.使用 InternLM-Chat-7B 模型生成 300 字的小故事
+
+![生成故事](./Notes-2.assets/image-20240107193341857.png)
+
+2.熟悉 hugging face 下载功能，使用 `huggingface_hub` python 包，下载 `InternLM-20B` 的 config.json 文件到本地
+
+![image-20240107194109709](./Notes-2.assets/image-20240107194109709.png)
+
+```python
+#创建download-20B-config.py文件
+import os 
+from huggingface_hub import hf_hub_download  # Load model directly 
+
+hf_hub_download(repo_id="internlm/internlm-20b", filename="config.json")
+
+#运行后出现'Cannot connect to proxy.', TimeoutError('timed out'))等错误，应该是网络代理的问题。
+#使用以下命令，利用镜像网站下载即可
+HF_ENDPOINT=https://hf-mirror.com python download-20B-config.py
+```
+
+![image-20240107195954146](./Notes-2.assets/image-20240107195954146.png)
+
+进阶作业如笔记所示
 
 
 
